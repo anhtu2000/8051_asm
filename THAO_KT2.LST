@@ -1,0 +1,408 @@
+MACRO ASSEMBLER THAO_KT2                                    12/20/19 08:05:07 PAGE     1
+
+
+WIN32 MACRO ASSEMBLER MA51 V06.04.08OBJECT MODULE PLACED IN C:\USERS\T2TEA\DOCUMENTS\RIDE\8051\THAO_KT2.OBJ
+ASSEMBLER INVOKED BY: MA51.EXE C:\USERS\T2TEA\DOCUMENTS\RIDE\8051\THAO_KT2.A51 OJ("C:\USERS\T2TEA\DOCUMENTS\RIDE\8051\THAO_KT2.OBJ") PIN("C:\RIDE\INC") EP LINES SYNTAX(ASM51) PR("C:\USERS\T2TEA\DOCUMENTS\RIDE\8051\THAO_KT2.LST") XR DB PW(80) RB(0) 
+
+LOC     OBJ           LINE    SOURCE
+                         1           $INCLUDE (REG51.INC)
+  0000                  80         ORG 0000H
+                        81     START: 
+0000    758000          82         MOV P0,#00H
+0003    75A000          83         MOV P2,#00H
+0006    1138            84         ACALL SANG_DAN_TAT_DAN                 ;loai1
+0008    1138            85         ACALL SANG_DAN_TAT_DAN
+000A    1138            86         ACALL SANG_DAN_TAT_DAN
+000C    1165            87         ACALL SANG_TU_GIUA_RA_TAT_NGUOC_LAI   ;loai2
+000E    1165            88         ACALL SANG_TU_GIUA_RA_TAT_NGUOC_LAI
+0010    1165            89         ACALL SANG_TU_GIUA_RA_TAT_NGUOC_LAI
+0012    1188            90         ACALL SANG_TU_NGOAI_VAO_TAT_NGUOC_LAI   ;loai3
+0014    1188            91         ACALL SANG_TU_NGOAI_VAO_TAT_NGUOC_LAI
+0016    1188            92         ACALL SANG_TU_NGOAI_VAO_TAT_NGUOC_LAI
+0018    11AB            93         ACALL CHOP_TAT_XEN_KE                   ; loai4
+001A    11AB            94         ACALL CHOP_TAT_XEN_KE
+001C    11AB            95         ACALL CHOP_TAT_XEN_KE
+001E    11AB            96         ACALL CHOP_TAT_XEN_KE
+0020    11AB            97         ACALL CHOP_TAT_XEN_KE
+0022    11AB            98         ACALL CHOP_TAT_XEN_KE
+0024    11BC            99         ACALL CHOP_TAT_BA_LAN_LIEN_TUC         ;loai5
+0026    11BC           100         ACALL CHOP_TAT_BA_LAN_LIEN_TUC
+0028    11BC           101         ACALL CHOP_TAT_BA_LAN_LIEN_TUC
+002A    11EB           102         ACALL MOT_LED_CHAY                      ;loai6
+002C    11EB           103         ACALL MOT_LED_CHAY
+002E    11EB           104         ACALL MOT_LED_CHAY
+0030    3112           105         ACALL LED_7_THANH
+0032    3112           106         ACALL LED_7_THANH
+0034    3112           107         ACALL LED_7_THANH
+0036    80C8           108         JMP START
+                       109     SANG_DAN_TAT_DAN: 
+0038    E580           110         MOV A,P0                     
+                       111     LAP0: 
+003A    D3             112         SETB C
+003B    33             113         RLC A
+003C    F580           114         MOV P0,A
+003E    3171           115         ACALL DELAY
+0040    3087F7         116         JNB P0.7,LAP0
+0043    E5A0           117         MOV A,P2
+                       118     LAP: 
+0045    D3             119         SETB C
+0046    33             120         RLC A
+0047    F5A0           121         MOV P2,A
+0049    3171           122         ACALL DELAY
+004B    30A7F7         123         JNB P2.7,LAP
+004E    E5A0           124         MOV A,P2
+                       125     LAP1: 
+0050    C3             126         CLR C
+0051    13             127         RRC A
+0052    F5A0           128         MOV P2,A
+0054    3171           129         ACALL DELAY
+0056    20A0F7         130         JB P2.0,LAP1
+0059    E580           131         MOV A,P0
+                       132     LAP2: 
+005B    C3             133         CLR C
+005C    13             134         RRC A
+005D    F580           135         MOV P0,A
+005F    3171           136         ACALL DELAY
+0061    2080F7         137         JB P0.0,LAP2
+0064    22             138         RET
+                       139     SANG_TU_GIUA_RA_TAT_NGUOC_LAI: 
+                       140     LAP3:                       
+0065    E580           141         MOV A,P0
+0067    D3             142         SETB C
+0068    13             143         RRC A
+0069    F580           144         MOV P0,A
+006B    E5A0           145         MOV A,P2
+006D    D3             146         SETB C
+006E    33             147         RLC A
+006F    F5A0           148         MOV P2,A
+0071    3171           149         ACALL DELAY
+0073    30A7EF         150         JNB P2.7,LAP3
+                       151     LAP4: 
+0076    E5A0           152         MOV A,P2
+0078    C3             153         CLR C
+0079    13             154         RRC A
+007A    F5A0           155         MOV P2,A
+007C    E580           156         MOV A,P0
+007E    C3             157         CLR C
+007F    33             158         RLC A
+0080    F580           159         MOV P0,A
+0082    3171           160         ACALL DELAY
+0084    2087EF         161         JB P0.7,LAP4
+0087    22             162         RET
+                       163     SANG_TU_NGOAI_VAO_TAT_NGUOC_LAI: 
+                       164     LAP5:                                
+0088    E580           165         MOV A,P0
+008A    D3             166         SETB C
+008B    33             167         RLC A
+008C    F580           168         MOV P0,A
+008E    E5A0           169         MOV A,P2
+0090    D3             170         SETB C
+0091    13             171         RRC A
+0092    F5A0           172         MOV P2,A
+0094    3171           173         ACALL DELAY
+0096    30A0EF         174         JNB P2.0,LAP5
+                       175     LAP6: 
+0099    E5A0           176         MOV A,P2
+009B    C3             177         CLR C
+009C    33             178         RLC A
+009D    F5A0           179         MOV P2,A
+009F    E580           180         MOV A,P0
+00A1    C3             181         CLR C
+00A2    13             182         RRC A
+00A3    F580           183         MOV P0,A
+00A5    3171           184         ACALL DELAY
+00A7    2080EF         185         JB P0.0,LAP6
+00AA    22             186         RET
+                       187     CHOP_TAT_XEN_KE: 
+00AB    758000         188         MOV P0,#00H              
+00AE    75A0FF         189         MOV P2,#0FFH
+00B1    318B           190         ACALL DELAY3
+00B3    7580FF         191         MOV P0,#0FFH
+00B6    75A000         192         MOV P2,#00H
+00B9    318B           193         ACALL DELAY3
+00BB    22             194         RET
+                       195     CHOP_TAT_BA_LAN_LIEN_TUC: 
+00BC    7580FF         196         MOV P0,#0FFH          
+00BF    75A0FF         197         MOV P2,#0FFH
+00C2    3169           198         ACALL DELAY1
+00C4    758000         199         MOV P0,#00H
+00C7    75A000         200         MOV P2,#00H
+00CA    3169           201         ACALL DELAY1
+00CC    7580FF         202         MOV P0,#0FFH
+00CF    75A0FF         203         MOV P2,#0FFH
+00D2    3169           204         ACALL DELAY1
+00D4    758000         205         MOV P0,#00H           
+00D7    75A000         206         MOV P2,#00H
+00DA    3169           207         ACALL DELAY1
+00DC    7580FF         208         MOV P0,#0FFH
+00DF    75A0FF         209         MOV P2,#0FFH
+00E2    3169           210         ACALL DELAY1
+00E4    758000         211         MOV P0,#00H
+00E7    75A000         212         MOV P2,#00H
+00EA    22             213         RET
+                       214         
+                       215     MOT_LED_CHAY: 
+00EB    7401           216         MOV A,#00000001B
+00ED    F580           217         MOV P0,A
+                       218     LAP23: 
+00EF    C3             219        CLR C
+00F0    33             220        RLC A
+00F1    3171           221        ACALL DELAY
+00F3    F580           222        MOV P0,A
+00F5    3087F7         223        JNB P0.7,LAP23
+00F8    3171           224        ACALL DELAY
+00FA    758000         225        MOV P0,#00H
+00FD    3171           226        ACALL DELAY
+00FF    7401           227        MOV A,#00000001B
+0101    F5A0           228        MOV P2,A
+                       229     LAP24: 
+0103    C3             230        CLR C
+0104    33             231        RLC A
+0105    3171           232        ACALL DELAY
+0107    F5A0           233        MOV P2,A
+0109    30A7F7         234        JNB P2.7,LAP24
+010C    3171           235        ACALL DELAY
+010E    75A000         236        MOV P2,#00H
+0111    22             237        RET
+                       238        
+                       239     LED_7_THANH: 
+0112    D290           240      SETB P1.0
+0114    75B006         241      MOV P3,#06H
+0117    C291           242      CLR P1.1
+0119    C292           243      CLR P1.2
+011B    C293           244      CLR P1.3
+011D    C294           245      CLR P1.4
+011F    C295           246      CLR P1.5
+0121    C296           247      CLR P1.6
+0123    C297           248      CLR P1.7
+0125    3198           249      ACALL DELAY7
+0127    C290           250      CLR P1.0
+0129    75B05B         251      MOV P3,#5BH
+012C    D291           252      SETB P1.1
+012E    3198           253      ACALL DELAY7
+0130    C291           254      CLR P1.1
+0132    75B04F         255      MOV P3,#4FH
+0135    D292           256      SETB P1.2
+0137    3198           257      ACALL DELAY7
+0139    C292           258      CLR P1.2
+013B    75B066         259      MOV P3,#66H
+013E    D293           260      SETB P1.3
+0140    3198           261      ACALL DELAY7
+0142    C293           262      CLR P1.3
+0144    75B06D         263      MOV P3,#6DH
+0147    D294           264      SETB P1.4
+0149    3198           265      ACALL DELAY7
+014B    C294           266      CLR P1.4
+014D    75B07D         267      MOV P3,#7DH
+0150    D295           268      SETB P1.5
+0152    3198           269      ACALL DELAY7
+0154    C295           270      CLR P1.5
+0156    75B007         271      MOV P3,#07H
+0159    D296           272      SETB P1.6
+015B    3198           273      ACALL DELAY7
+015D    C296           274      CLR P1.6
+015F    75B07F         275      MOV P3,#7FH
+0162    D297           276      SETB P1.7
+0164    3198           277      ACALL DELAY7
+0166    C297           278      CLR P1.7
+0168    22             279      RET
+                       280        
+                       281        
+                       282     DELAY1: 
+0169    7BFA           283         MOV R3,#250
+                       284     W3: 
+016B    7CFA           285         MOV R4,#250
+016D    DCFE           286         DJNZ R4,$
+016F    DBFA           287         DJNZ R3,W3
+                       288     DELAY: 
+0171    7801           289         MOV R0,#1
+                       290     W2: 
+0173    79C8           291         MOV R1,#200
+                       292     W1: 
+0175    7AC8           293         MOV R2,#200
+0177    DAFE           294         DJNZ R2,$
+0179    D9FA           295         DJNZ R1,W1
+017B    D8F6           296         DJNZ R0,W2
+017D    22             297         RET
+                       298     DELAY2: 
+017E    780A           299         MOV R0,#10
+                       300     W5: 
+0180    79C8           301         MOV R1,#200
+                       302     W4: 
+0182    7AC8           303         MOV R2,#200
+0184    DAFE           304         DJNZ R2,$
+0186    D9FA           305         DJNZ R1,W4
+0188    D8F6           306         DJNZ R0,W5
+018A    22             307         RET
+                       308     DELAY3: 
+018B    7803           309         MOV R0,#3
+                       310     W6: 
+018D    79C8           311         MOV R1,#200
+                       312     W7: 
+018F    7AC8           313         MOV R2,#200
+0191    DAFE           314         DJNZ R2,$
+0193    D9FA           315         DJNZ R1,W7
+0195    D8F6           316         DJNZ R0,W6
+0197    22             317         RET
+                       318     DELAY7: 
+0198    7F10           319      MOV R7,#10H
+                       320      ;x2:
+019A    758910         321      MOV TMOD,#10H
+                       322     LAP99: 
+019D    C28F           323      CLR TF1
+019F    758D3C         324      MOV TH1,#3CH
+01A2    758BAF         325      MOV TL1,#0AFH
+01A5    D28E           326      SETB TR1
+01A7    308FFD         327      JNB TF1,$
+01AA    DFF1           328      DJNZ R7,LAP99
+                       329      ;x1:
+                       330      ;mov r5,#200
+                       331      ;djnz r5,$
+                       332      ;djnz r6,x1
+                       333      ;djnz r7,x2
+01AC    22             334      RET
+                       335         END
+MACRO ASSEMBLER THAO_KT2                                    12/20/19 08:05:07 PAGE     0
+
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES             REFERENCES
+
+DELAY1 . . . . . .  C ADDR   0169H   A                          198 201 204 207 210 
+                                                                282# 
+CHOP_TAT_BA_LAN_L~  C ADDR   00BCH   A                          99 100 101 195# 
+SANG_TU_GIUA_RA_T~  C ADDR   0065H   A                          87 88 89 139# 
+DPL. . . . . . . .  D ADDR   0082H   A                          16# 
+P0 . . . . . . . .  D ADDR   0080H   A                          8# 82 110 114 116 
+                                                                131 135 137 141 144 
+                                                                156 159 161 165 168 
+                                                                180 183 185 188 191 
+                                                                196 199 202 205 208 
+                                                                211 217 222 223 225 
+                                                                
+DELAY2 . . . . . .  C ADDR   017EH   A                          298# 
+P1 . . . . . . . .  D ADDR   0090H   A                          9# 240 242 243 244 
+                                                                245 246 247 248 250 
+                                                                252 254 256 258 260 
+                                                                262 264 266 268 270 
+                                                                272 274 276 278 
+LAP23. . . . . . .  C ADDR   00EFH   A                          218# 223 
+DELAY3 . . . . . .  C ADDR   018BH   A                          190 193 308# 
+B. . . . . . . . .  D ADDR   00F0H   A                          14# 
+P2 . . . . . . . .  D ADDR   00A0H   A                          10# 83 117 121 123 
+                                                                124 128 130 145 148 
+                                                                150 152 155 169 172 
+                                                                174 176 179 189 192 
+                                                                197 200 203 206 209 
+                                                                212 228 233 234 236 
+                                                                
+LAP24. . . . . . .  C ADDR   0103H   A                          229# 234 
+PS . . . . . . . .  B ADDR   00B8H.4 A                          57# 
+SP . . . . . . . .  D ADDR   0081H   A                          15# 
+P3 . . . . . . . .  D ADDR   00B0H   A                          11# 241 251 255 259 
+                                                                263 267 271 275 
+T0 . . . . . . . .  B ADDR   00B0H.4 A                          66# 
+AC . . . . . . . .  B ADDR   00D0H.6 A                          34# 
+REN. . . . . . . .  B ADDR   0098H.4 A                          75# 
+T1 . . . . . . . .  B ADDR   00B0H.5 A                          65# 
+OV . . . . . . . .  B ADDR   00D0H.2 A                          38# 
+DELAY7 . . . . . .  C ADDR   0198H   A                          249 253 257 261 265 
+                                                                269 273 277 318# 
+                                                                
+EA . . . . . . . .  B ADDR   00A8H.7 A                          50# 
+ACC. . . . . . . .  D ADDR   00E0H   A                          13# 
+W1 . . . . . . . .  C ADDR   0175H   A                          292# 295 
+MOT_LED_CHAY . . .  C ADDR   00EBH   A                          102 103 104 215# 
+                                                                
+W2 . . . . . . . .  C ADDR   0173H   A                          290# 296 
+WR . . . . . . . .  B ADDR   00B0H.6 A                          64# 
+ET0. . . . . . . .  B ADDR   00A8H.1 A                          54# 
+W3 . . . . . . . .  C ADDR   016BH   A                          284# 287 
+ET1. . . . . . . .  B ADDR   00A8H.3 A                          52# 
+TF0. . . . . . . .  B ADDR   0088H.5 A                          43# 
+W4 . . . . . . . .  C ADDR   0182H   A                          302# 305 
+CHOP_TAT_XEN_KE. .  C ADDR   00ABH   A                          93 94 95 96 97 98 
+                                                                187# 
+TF1. . . . . . . .  B ADDR   0088H.7 A                          41# 323 327 335 
+W5 . . . . . . . .  C ADDR   0180H   A                          300# 306 
+RB8. . . . . . . .  B ADDR   0098H.2 A                          77# 
+TH0. . . . . . . .  D ADDR   008CH   A                          23# 
+W6 . . . . . . . .  C ADDR   018DH   A                          310# 316 
+LAP0 . . . . . . .  C ADDR   003AH   A                          111# 116 
+EX0. . . . . . . .  B ADDR   00A8H.0 A                          55# 
+IT0. . . . . . . .  B ADDR   0088H.0 A                          48# 
+TH1. . . . . . . .  D ADDR   008DH   A                          24# 324 
+W7 . . . . . . . .  C ADDR   018FH   A                          312# 315 
+LAP1 . . . . . . .  C ADDR   0050H   A                          125# 130 
+START. . . . . . .  C ADDR   0000H   A                          81# 108 
+TB8. . . . . . . .  B ADDR   0098H.3 A                          76# 
+RXD. . . . . . . .  B ADDR   00B0H.0 A                          70# 
+EX1. . . . . . . .  B ADDR   00A8H.2 A                          53# 
+IT1. . . . . . . .  B ADDR   0088H.2 A                          46# 
+IE . . . . . . . .  D ADDR   00A8H   A                          25# 
+LAP99. . . . . . .  C ADDR   019DH   A                          322# 328 
+LAP2 . . . . . . .  C ADDR   005BH   A                          132# 137 
+DELAY. . . . . . .  C ADDR   0171H   A                          115 122 129 136 149 
+                                                                160 173 184 221 224 
+                                                                226 232 235 288# 
+                                                                
+LAP3 . . . . . . .  C ADDR   0065H   A                          140# 150 
+SM0. . . . . . . .  B ADDR   0098H.7 A                          72# 
+TXD. . . . . . . .  B ADDR   00B0H.1 A                          69# 
+P. . . . . . . . .  B ADDR   00D0H.0 A                          39# 
+SBUF . . . . . . .  D ADDR   0099H   A                          28# 
+TL0. . . . . . . .  D ADDR   008AH   A                          21# 
+PCON . . . . . . .  D ADDR   0087H   A                          18# 
+LAP4 . . . . . . .  C ADDR   0076H   A                          151# 161 
+SM1. . . . . . . .  B ADDR   0098H.6 A                          73# 
+TL1. . . . . . . .  D ADDR   008BH   A                          22# 325 
+LAP5 . . . . . . .  C ADDR   0088H   A                          164# 174 
+SM2. . . . . . . .  B ADDR   0098H.5 A                          74# 
+LAP6 . . . . . . .  C ADDR   0099H   A                          175# 185 
+SCON . . . . . . .  D ADDR   0098H   A                          27# 
+PT0. . . . . . . .  B ADDR   00B8H.1 A                          60# 
+TMOD . . . . . . .  D ADDR   0089H   A                          20# 321 
+TCON . . . . . . .  D ADDR   0088H   A                          19# 
+SANG_DAN_TAT_DAN .  C ADDR   0038H   A                          84 85 86 109# 
+PT1. . . . . . . .  B ADDR   00B8H.3 A                          58# 
+RS0. . . . . . . .  B ADDR   00D0H.3 A                          37# 
+RD . . . . . . . .  B ADDR   00B0H.7 A                          63# 
+TR0. . . . . . . .  B ADDR   0088H.4 A                          44# 
+RS1. . . . . . . .  B ADDR   00D0H.4 A                          36# 
+F0 . . . . . . . .  B ADDR   00D0H.5 A                          35# 
+TR1. . . . . . . .  B ADDR   0088H.6 A                          42# 326 
+PX0. . . . . . . .  B ADDR   00B8H.0 A                          61# 
+ES . . . . . . . .  B ADDR   00A8H.4 A                          51# 
+PX1. . . . . . . .  B ADDR   00B8H.2 A                          59# 
+IP . . . . . . . .  D ADDR   00B8H   A                          26# 
+PSW. . . . . . . .  D ADDR   00D0H   A                          12# 
+SANG_TU_NGOAI_VAO~  C ADDR   0088H   A                          90 91 92 163# 
+RI . . . . . . . .  B ADDR   0098H.0 A                          79# 
+INT0 . . . . . . .  B ADDR   00B0H.2 A                          68# 
+INT1 . . . . . . .  B ADDR   00B0H.3 A                          67# 
+CY . . . . . . . .  B ADDR   00D0H.7 A                          33# 
+DPH. . . . . . . .  D ADDR   0083H   A                          17# 
+LAP. . . . . . . .  C ADDR   0045H   A                          118# 123 
+LED_7_THANH. . . .  C ADDR   0112H   A                          105 106 107 239# 
+                                                                
+TI . . . . . . . .  B ADDR   0098H.1 A                          78# 
+IE0. . . . . . . .  B ADDR   0088H.1 A                          47# 
+IE1. . . . . . . .  B ADDR   0088H.3 A                          45# 
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    429    ----
+   XDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+REGISTER BANK(S) USED : 0 
+
+ASSEMBLY COMPLETE.   0 WARNING(S)   0 ERROR(S)

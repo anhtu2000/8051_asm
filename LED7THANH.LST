@@ -1,0 +1,151 @@
+MACRO ASSEMBLER LED7THANH                                   12/17/19 10:27:23 PAGE     1
+
+
+WIN32 MACRO ASSEMBLER MA51 V06.04.08OBJECT MODULE PLACED IN C:\USERS\T2TEA\DOCUMENTS\RIDE\8051\LED7THANH.OBJ
+ASSEMBLER INVOKED BY: MA51.EXE C:\USERS\T2TEA\DOCUMENTS\RIDE\8051\LED7THANH.A51 OJ("C:\USERS\T2TEA\DOCUMENTS\RIDE\8051\LED7THANH.OBJ") PIN("C:\RIDE\INC") EP LINES SYNTAX(ASM51) PR("C:\USERS\T2TEA\DOCUMENTS\RIDE\8051\LED7THANH.LST") XR DB PW(80) RB(0) 
+
+LOC     OBJ           LINE    SOURCE
+                         1     $INCLUDE(REG51.INC)
+  0000                  80     ORG 0000H
+0000    758303          81     MOV DPH,#03H
+                        82     START: 
+0003    7B00            83     	MOV R3,#00H
+                        84     LOOP: 
+0005    7C32            85     	MOV R4,#50
+                        86     LAP: 
+0007    850301          87     	MOV 01H,03H
+000A    7AF0            88     	MOV R2,#0F0H
+000C    7808            89     	MOV R0,#8
+                        90     NEXT: 
+000E    8982            91     	MOV DPL,R1
+0010    E4              92     	CLR A
+0011    93              93     	MOVC A,@A+DPTR
+0012    F580            94     	MOV P0,A
+0014    E4              95     	CLR A
+0015    8A82            96     	MOV DPL,R2
+0017    93              97     	MOVC A,@A+DPTR
+0018    F5B0            98     	MOV P3,A
+001A    112E            99     	ACALL DELAY
+001C    75B0FF         100     	MOV P3,#0FFH
+001F    7580FF         101     	MOV P0,#0FFH
+0022    09             102     	INC R1
+0023    0A             103     	INC R2
+0024    D8E8           104     	DJNZ R0,NEXT
+0026    DCDF           105     	DJNZ R4,LAP
+0028    0B             106     	INC R3
+0029    BB10D9         107     	CJNE R3,#16,LOOP
+002C    80D5           108     	JMP START
+                       109     DELAY: 
+002E    7E00           110     	MOV R6,#200H
+
+*** WARNING #53 IN LINE 32 OF led7thanh.a51 : VALUE HAS BEEN TRUNCATED TO 8 BITS
+0030    7F55           111     W1: MOV R7,#255H
+
+*** WARNING #53 IN LINE 33 OF led7thanh.a51 : VALUE HAS BEEN TRUNCATED TO 8 BITS
+0032    DFFE           112     	DJNZ R7,$
+0034    DEFA           113     	DJNZ R6,W1
+0036    22             114     	RET
+                       115     	
+  0300                 116     ORG 0300H
+                       117     
+0300    C0F9A4B0       118     DB 0C0H,0F9H,0A4H,0B0H,99H,92H,82H,0F8H
+0304    999282F8
+                       119     
+                       120     
+  03F0                 121     ORG 03F0H
+03F0    7FBFDFEF       122     DB 7FH,0BFH,0DFH,0EFH,0F7H,0FBH,0FDH,0FEH
+03F4    F7FBFDFE
+                       123     END
+MACRO ASSEMBLER LED7THANH                                   12/17/19 10:27:23 PAGE     0
+
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES             REFERENCES
+
+DPL. . . . . . . .  D ADDR   0082H   A                          16# 91 96 
+P0 . . . . . . . .  D ADDR   0080H   A                          8# 94 101 
+P1 . . . . . . . .  D ADDR   0090H   A                          9# 
+B. . . . . . . . .  D ADDR   00F0H   A                          14# 
+P2 . . . . . . . .  D ADDR   00A0H   A                          10# 
+PS . . . . . . . .  B ADDR   00B8H.4 A                          57# 
+SP . . . . . . . .  D ADDR   0081H   A                          15# 
+P3 . . . . . . . .  D ADDR   00B0H   A                          11# 98 100 
+T0 . . . . . . . .  B ADDR   00B0H.4 A                          66# 
+AC . . . . . . . .  B ADDR   00D0H.6 A                          34# 
+REN. . . . . . . .  B ADDR   0098H.4 A                          75# 
+T1 . . . . . . . .  B ADDR   00B0H.5 A                          65# 
+OV . . . . . . . .  B ADDR   00D0H.2 A                          38# 
+EA . . . . . . . .  B ADDR   00A8H.7 A                          50# 
+ACC. . . . . . . .  D ADDR   00E0H   A                          13# 
+W1 . . . . . . . .  C ADDR   0030H   A                          111# 113 
+WR . . . . . . . .  B ADDR   00B0H.6 A                          64# 
+ET0. . . . . . . .  B ADDR   00A8H.1 A                          54# 
+ET1. . . . . . . .  B ADDR   00A8H.3 A                          52# 
+TF0. . . . . . . .  B ADDR   0088H.5 A                          43# 
+TF1. . . . . . . .  B ADDR   0088H.7 A                          41# 
+RB8. . . . . . . .  B ADDR   0098H.2 A                          77# 
+TH0. . . . . . . .  D ADDR   008CH   A                          23# 
+EX0. . . . . . . .  B ADDR   00A8H.0 A                          55# 
+IT0. . . . . . . .  B ADDR   0088H.0 A                          48# 
+TH1. . . . . . . .  D ADDR   008DH   A                          24# 
+START. . . . . . .  C ADDR   0003H   A                          82# 108 
+TB8. . . . . . . .  B ADDR   0098H.3 A                          76# 
+RXD. . . . . . . .  B ADDR   00B0H.0 A                          70# 
+EX1. . . . . . . .  B ADDR   00A8H.2 A                          53# 
+IT1. . . . . . . .  B ADDR   0088H.2 A                          46# 
+IE . . . . . . . .  D ADDR   00A8H   A                          25# 
+DELAY. . . . . . .  C ADDR   002EH   A                          99 109# 
+SM0. . . . . . . .  B ADDR   0098H.7 A                          72# 
+TXD. . . . . . . .  B ADDR   00B0H.1 A                          69# 
+P. . . . . . . . .  B ADDR   00D0H.0 A                          39# 
+SBUF . . . . . . .  D ADDR   0099H   A                          28# 
+TL0. . . . . . . .  D ADDR   008AH   A                          21# 
+PCON . . . . . . .  D ADDR   0087H   A                          18# 
+SM1. . . . . . . .  B ADDR   0098H.6 A                          73# 
+TL1. . . . . . . .  D ADDR   008BH   A                          22# 
+SM2. . . . . . . .  B ADDR   0098H.5 A                          74# 
+SCON . . . . . . .  D ADDR   0098H   A                          27# 
+PT0. . . . . . . .  B ADDR   00B8H.1 A                          60# 
+TMOD . . . . . . .  D ADDR   0089H   A                          20# 
+TCON . . . . . . .  D ADDR   0088H   A                          19# 
+PT1. . . . . . . .  B ADDR   00B8H.3 A                          58# 
+RS0. . . . . . . .  B ADDR   00D0H.3 A                          37# 
+RD . . . . . . . .  B ADDR   00B0H.7 A                          63# 
+TR0. . . . . . . .  B ADDR   0088H.4 A                          44# 
+RS1. . . . . . . .  B ADDR   00D0H.4 A                          36# 
+F0 . . . . . . . .  B ADDR   00D0H.5 A                          35# 
+TR1. . . . . . . .  B ADDR   0088H.6 A                          42# 
+PX0. . . . . . . .  B ADDR   00B8H.0 A                          61# 
+ES . . . . . . . .  B ADDR   00A8H.4 A                          51# 
+PX1. . . . . . . .  B ADDR   00B8H.2 A                          59# 
+IP . . . . . . . .  D ADDR   00B8H   A                          26# 
+LOOP . . . . . . .  C ADDR   0005H   A                          84# 107 
+PSW. . . . . . . .  D ADDR   00D0H   A                          12# 
+RI . . . . . . . .  B ADDR   0098H.0 A                          79# 
+INT0 . . . . . . .  B ADDR   00B0H.2 A                          68# 
+INT1 . . . . . . .  B ADDR   00B0H.3 A                          67# 
+CY . . . . . . . .  B ADDR   00D0H.7 A                          33# 
+DPH. . . . . . . .  D ADDR   0083H   A                          17# 81 
+LAP. . . . . . . .  C ADDR   0007H   A                          86# 105 
+TI . . . . . . . .  B ADDR   0098H.1 A                          78# 
+IE0. . . . . . . .  B ADDR   0088H.1 A                          47# 
+NEXT . . . . . . .  C ADDR   000EH   A                          90# 104 
+IE1. . . . . . . .  B ADDR   0088H.3 A                          45# 
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     71    ----
+   XDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+REGISTER BANK(S) USED : 0 
+
+ASSEMBLY COMPLETE.   2 WARNING(S)   0 ERROR(S)

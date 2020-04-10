@@ -1,0 +1,5 @@
+ $INCLUDE(REG51.INC)
+ORG 0000H
+
+
+end

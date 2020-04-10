@@ -1,0 +1,175 @@
+MACRO ASSEMBLER TINH_KT2                                    12/20/19 07:22:05 PAGE     1
+
+
+WIN32 MACRO ASSEMBLER MA51 V06.04.08OBJECT MODULE PLACED IN C:\USERS\T2TEA\DOCUMENTS\RIDE\8051\TINH_KT2.OBJ
+ASSEMBLER INVOKED BY: MA51.EXE C:\USERS\T2TEA\DOCUMENTS\RIDE\8051\TINH_KT2.A51 OJ("C:\USERS\T2TEA\DOCUMENTS\RIDE\8051\TINH_KT2.OBJ") PIN("C:\RIDE\INC") EP LINES SYNTAX(ASM51) PR("C:\USERS\T2TEA\DOCUMENTS\RIDE\8051\TINH_KT2.LST") XR DB PW(80) RB(0) 
+
+LOC     OBJ           LINE    SOURCE
+                         1     $INCLUDE(REG51.INC)
+  0000                  80     ORG 0000H
+                        81     X2: 
+0000    7580FF          82        MOV P0,#0FFH
+0003    75A0FF          83        MOV P2,#0FFH
+0006    74FF            84        MOV A,#0FFH
+                        85      X22: 
+0008    C3              86        CLR C
+0009    33              87        RLC A
+000A    F580            88        MOV P0,A
+000C    12005A          89        CALL TRE
+000F    40F7            90        JC X22
+0011    74FF            91        MOV A,#0FFH
+                        92      X23: 
+0013    C3              93        CLR C
+0014    33              94        RLC A
+0015    F5A0            95        MOV P2,A
+0017    12005A          96        CALL TRE
+001A    40F7            97        JC X23
+                        98      X24: 
+001C    D3              99        SETB C
+001D    13             100        RRC A
+001E    F5A0           101        MOV P2,A
+0020    12005A         102        CALL TRE
+0023    50F7           103        JNC X24
+0025    7400           104        MOV A,#00H
+                       105        
+                       106      X25: 
+0027    D3             107        SETB C
+0028    13             108        RRC A
+0029    F580           109        MOV P0,A
+002B    12005A         110        CALL TRE
+002E    50F7           111        JNC X25
+                       112        
+                       113        
+0030    7580FF         114        MOV P0,#0FFH
+0033    75A0FF         115        MOV P2,#0FFH
+0036    74FF           116        MOV A,#0FFH
+                       117     X1: 
+0038    75B0FF         118       MOV P3,#0FFH
+003B    7400           119       MOV A,#0
+003D    7A00           120       MOV R2,#0
+003F    90004F         121       MOV DPTR,#BANG_MA
+                       122     X10: 
+0042    EA             123       MOV A,R2
+0043    93             124       MOVC A,@A+DPTR
+0044    F5B0           125       MOV P3,A
+0046    12005A         126       CALL TRE
+0049    0A             127       INC R2
+004A    BA0BF5         128       CJNE R2,#11,X10
+004D    80B1           129       JMP X2
+004F    C0F9A4B0       130     BANG_MA:  DB 0C0H,0F9H,0A4H,0B0H,99H,92H,82H,0F8H,80H,90H,0FFH
+0053    999282F8
+0057    8090FF
+                       131     
+                       132     TRE: 
+005A    758901         133         MOV TMOD,#01H
+005D    7803           134         MOV R0,#3
+                       135      LAP: 
+005F    C28D           136         CLR TF0
+0061    758C3C         137         MOV TH0,#3CH
+0064    758AB0         138         MOV TL0,#0B0H
+0067    D28C           139         SETB TR0
+0069    308DFD         140         JNB TF0,$
+006C    D8F1           141         DJNZ R0,LAP
+006E    C28C           142         CLR TR0
+0070    22             143         RET
+                       144     END 
+MACRO ASSEMBLER TINH_KT2                                    12/20/19 07:22:05 PAGE     0
+
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES             REFERENCES
+
+DPL. . . . . . . .  D ADDR   0082H   A                          16# 
+P0 . . . . . . . .  D ADDR   0080H   A                          8# 82 88 109 114 
+                                                                
+P1 . . . . . . . .  D ADDR   0090H   A                          9# 
+B. . . . . . . . .  D ADDR   00F0H   A                          14# 
+P2 . . . . . . . .  D ADDR   00A0H   A                          10# 83 95 101 115 
+                                                                
+PS . . . . . . . .  B ADDR   00B8H.4 A                          57# 
+SP . . . . . . . .  D ADDR   0081H   A                          15# 
+P3 . . . . . . . .  D ADDR   00B0H   A                          11# 118 125 
+T0 . . . . . . . .  B ADDR   00B0H.4 A                          66# 
+AC . . . . . . . .  B ADDR   00D0H.6 A                          34# 
+BANG_MA. . . . . .  C ADDR   004FH   A                          121 130# 
+REN. . . . . . . .  B ADDR   0098H.4 A                          75# 
+T1 . . . . . . . .  B ADDR   00B0H.5 A                          65# 
+OV . . . . . . . .  B ADDR   00D0H.2 A                          38# 
+EA . . . . . . . .  B ADDR   00A8H.7 A                          50# 
+ACC. . . . . . . .  D ADDR   00E0H   A                          13# 
+X1 . . . . . . . .  C ADDR   0038H   A                          117# 
+WR . . . . . . . .  B ADDR   00B0H.6 A                          64# 
+ET0. . . . . . . .  B ADDR   00A8H.1 A                          54# 
+X2 . . . . . . . .  C ADDR   0000H   A                          81# 129 
+ET1. . . . . . . .  B ADDR   00A8H.3 A                          52# 
+TF0. . . . . . . .  B ADDR   0088H.5 A                          43# 136 140 144 
+TRE. . . . . . . .  C ADDR   005AH   A                          89 96 102 110 126 
+                                                                132# 
+TF1. . . . . . . .  B ADDR   0088H.7 A                          41# 
+RB8. . . . . . . .  B ADDR   0098H.2 A                          77# 
+TH0. . . . . . . .  D ADDR   008CH   A                          23# 137 
+EX0. . . . . . . .  B ADDR   00A8H.0 A                          55# 
+IT0. . . . . . . .  B ADDR   0088H.0 A                          48# 
+TH1. . . . . . . .  D ADDR   008DH   A                          24# 
+TB8. . . . . . . .  B ADDR   0098H.3 A                          76# 
+RXD. . . . . . . .  B ADDR   00B0H.0 A                          70# 
+EX1. . . . . . . .  B ADDR   00A8H.2 A                          53# 
+IT1. . . . . . . .  B ADDR   0088H.2 A                          46# 
+IE . . . . . . . .  D ADDR   00A8H   A                          25# 
+SM0. . . . . . . .  B ADDR   0098H.7 A                          72# 
+TXD. . . . . . . .  B ADDR   00B0H.1 A                          69# 
+P. . . . . . . . .  B ADDR   00D0H.0 A                          39# 
+SBUF . . . . . . .  D ADDR   0099H   A                          28# 
+TL0. . . . . . . .  D ADDR   008AH   A                          21# 138 
+PCON . . . . . . .  D ADDR   0087H   A                          18# 
+SM1. . . . . . . .  B ADDR   0098H.6 A                          73# 
+TL1. . . . . . . .  D ADDR   008BH   A                          22# 
+SM2. . . . . . . .  B ADDR   0098H.5 A                          74# 
+SCON . . . . . . .  D ADDR   0098H   A                          27# 
+PT0. . . . . . . .  B ADDR   00B8H.1 A                          60# 
+TMOD . . . . . . .  D ADDR   0089H   A                          20# 133 
+TCON . . . . . . .  D ADDR   0088H   A                          19# 
+PT1. . . . . . . .  B ADDR   00B8H.3 A                          58# 
+RS0. . . . . . . .  B ADDR   00D0H.3 A                          37# 
+RD . . . . . . . .  B ADDR   00B0H.7 A                          63# 
+TR0. . . . . . . .  B ADDR   0088H.4 A                          44# 139 142 
+RS1. . . . . . . .  B ADDR   00D0H.4 A                          36# 
+F0 . . . . . . . .  B ADDR   00D0H.5 A                          35# 
+TR1. . . . . . . .  B ADDR   0088H.6 A                          42# 
+PX0. . . . . . . .  B ADDR   00B8H.0 A                          61# 
+ES . . . . . . . .  B ADDR   00A8H.4 A                          51# 
+X10. . . . . . . .  C ADDR   0042H   A                          122# 128 
+PX1. . . . . . . .  B ADDR   00B8H.2 A                          59# 
+IP . . . . . . . .  D ADDR   00B8H   A                          26# 
+PSW. . . . . . . .  D ADDR   00D0H   A                          12# 
+RI . . . . . . . .  B ADDR   0098H.0 A                          79# 
+INT0 . . . . . . .  B ADDR   00B0H.2 A                          68# 
+X22. . . . . . . .  C ADDR   0008H   A                          85# 90 
+INT1 . . . . . . .  B ADDR   00B0H.3 A                          67# 
+CY . . . . . . . .  B ADDR   00D0H.7 A                          33# 
+DPH. . . . . . . .  D ADDR   0083H   A                          17# 
+LAP. . . . . . . .  C ADDR   005FH   A                          135# 141 
+X23. . . . . . . .  C ADDR   0013H   A                          92# 97 
+TI . . . . . . . .  B ADDR   0098H.1 A                          78# 
+X24. . . . . . . .  C ADDR   001CH   A                          98# 103 
+IE0. . . . . . . .  B ADDR   0088H.1 A                          47# 
+X25. . . . . . . .  C ADDR   0027H   A                          106# 111 
+IE1. . . . . . . .  B ADDR   0088H.3 A                          45# 
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    113    ----
+   XDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+REGISTER BANK(S) USED : 0 
+
+ASSEMBLY COMPLETE.   0 WARNING(S)   0 ERROR(S)

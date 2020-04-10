@@ -1,0 +1,157 @@
+LX51 CODE BANKING LINKER/LOCATOR V05.01.15       12/17/19  10:27:23  PAGE  1
+WIN32 LX51 CODE BANKING LINKER/LOCATOR V05.01.15,  INVOKED BY:
+LX51 c:\users\t2tea\documents\ride\8051\led7thanh.OBJ TO(c:\users\t2tea\docum&
+ents\ride\8051\led7thanh.AOF) PR(c:\users\t2tea\documents\ride\8051\led7thanh&
+.m51) PW(80) XSIZE(65536) CSIZE(65536) RS(256) RSI(256) IX MAP 
+
+
+MEMORY MODEL: LARGE
+
+
+INPUT MODULES INCLUDED
+  C:\USERS\T2TEA\DOCUMENTS\RIDE\8051\LED7THANH.OBJ(LED7THANH)
+
+
+LINK MAP OF MODULE: C:\USERS\T2TEA\DOCUMENTS\RIDE\8051\LED7THANH.AOF (LED7THANH&
+)
+
+    TYPE     BASE       LENGTH    RELOCATION     SEGMENT NAME
+    ----     ----       ------    ----------     ------------
+
+    * * * * * * *   DATA/IDATA    M E M O R Y   * * * * * * *
+    REG      0000H      0008H     ABSOLUTE       "REG BANK 0"
+
+    * * * * * * *   CODE          M E M O R Y   * * * * * * *
+    CODE     0000H      0037H     ABSOLUTE       
+             0037H      02C9H                    *** GAP ***
+    CODE     0300H      0008H     ABSOLUTE       
+             0308H      00E8H                    *** GAP ***
+    CODE     03F0H      0008H     ABSOLUTE       
+
+EXECUTABLE SUMMARY:
+-------------------
+    Total INTERNAL RAM storage requirement:  0008H (8)
+    Total EXTERNAL RAM storage requirement:  0000H (0)
+    Total     CODE     storage requirement:  0047H (71)
+Note:  Summary does not include dynamic stack requirements
+
+
+REFERENCE MAP OF MODULE: C:\USERS\T2TEA\DOCUMENTS\RIDE\8051\LED7THANH.AOF (LED7THANH)
+
+SEGMENT                           BI_GROUP            DT_GROUP             XD_GROUP
+  +--> CALLED SEGMENT          START    LENGTH     START    LENGTH     START    LENGTH
+--------------------------------------------------------------------------------------
+
+SYMBOL TABLE FOR C:\USERS\T2TEA\DOCUMENTS\RIDE\8051\LED7THANH.AOF(LED7THANH)
+-----------------------------------------------------------------------------
+
+    VALUE              TYPE               NAME
+    -----              ----               ----
+
+	-------            MODULE             LED7THANH
+	D:0082H            SYMBOL             DPL
+	D:0080H            SYMBOL             P0
+	D:0090H            SYMBOL             P1
+	D:00F0H            SYMBOL             B
+	D:00A0H            SYMBOL             P2
+	B:00BCH            SYMBOL             PS
+	D:0081H            SYMBOL             SP
+	D:00B0H            SYMBOL             P3
+	B:00B4H            SYMBOL             T0
+	B:00D6H            SYMBOL             AC
+	B:009CH            SYMBOL             REN
+	B:00B5H            SYMBOL             T1
+	B:00D2H            SYMBOL             OV
+	B:00AFH            SYMBOL             EA
+	D:00E0H            SYMBOL             ACC
+	C:0030H            SYMBOL             W1
+	B:00B6H            SYMBOL             WR
+	B:00A9H            SYMBOL             ET0
+	B:00ABH            SYMBOL             ET1
+LX51 CODE BANKING LINKER/LOCATOR V05.01.15         12/17/19  10:27:23  PAGE  2
+
+	B:008DH            SYMBOL             TF0
+	B:008FH            SYMBOL             TF1
+	B:009AH            SYMBOL             RB8
+	D:008CH            SYMBOL             TH0
+	B:00A8H            SYMBOL             EX0
+	B:0088H            SYMBOL             IT0
+	D:008DH            SYMBOL             TH1
+	C:0003H            SYMBOL             START
+	B:009BH            SYMBOL             TB8
+	B:00B0H            SYMBOL             RXD
+	B:00AAH            SYMBOL             EX1
+	B:008AH            SYMBOL             IT1
+	D:00A8H            SYMBOL             IE
+	C:002EH            SYMBOL             DELAY
+	B:009FH            SYMBOL             SM0
+	B:00B1H            SYMBOL             TXD
+	B:00D0H            SYMBOL             P
+	D:0099H            SYMBOL             SBUF
+	D:008AH            SYMBOL             TL0
+	D:0087H            SYMBOL             PCON
+	B:009EH            SYMBOL             SM1
+	D:008BH            SYMBOL             TL1
+	B:009DH            SYMBOL             SM2
+	D:0098H            SYMBOL             SCON
+	B:00B9H            SYMBOL             PT0
+	D:0089H            SYMBOL             TMOD
+	D:0088H            SYMBOL             TCON
+	B:00BBH            SYMBOL             PT1
+	B:00D3H            SYMBOL             RS0
+	B:00B7H            SYMBOL             RD
+	B:008CH            SYMBOL             TR0
+	B:00D4H            SYMBOL             RS1
+	B:00D5H            SYMBOL             F0
+	B:008EH            SYMBOL             TR1
+	B:00B8H            SYMBOL             PX0
+	B:00ACH            SYMBOL             ES
+	B:00BAH            SYMBOL             PX1
+	D:00B8H            SYMBOL             IP
+	C:0005H            SYMBOL             LOOP
+	D:00D0H            SYMBOL             PSW
+	B:0098H            SYMBOL             RI
+	B:00B2H            SYMBOL             INT0
+	B:00B3H            SYMBOL             INT1
+	B:00D7H            SYMBOL             CY
+	D:0083H            SYMBOL             DPH
+	C:0007H            SYMBOL             LAP
+	B:0099H            SYMBOL             TI
+	B:0089H            SYMBOL             IE0
+	C:000EH            SYMBOL             NEXT
+	B:008BH            SYMBOL             IE1
+	C:0000H            LINE#              3
+	C:0003H            LINE#              5
+	C:0005H            LINE#              7
+	C:0007H            LINE#              9
+	C:000AH            LINE#              10
+	C:000CH            LINE#              11
+	C:000EH            LINE#              13
+	C:0010H            LINE#              14
+	C:0011H            LINE#              15
+	C:0012H            LINE#              16
+	C:0014H            LINE#              17
+	C:0015H            LINE#              18
+	C:0017H            LINE#              19
+	C:0018H            LINE#              20
+	C:001AH            LINE#              21
+	C:001CH            LINE#              22
+	C:001FH            LINE#              23
+	C:0022H            LINE#              24
+LX51 CODE BANKING LINKER/LOCATOR V05.01.15         12/17/19  10:27:23  PAGE  3
+
+	C:0023H            LINE#              25
+	C:0024H            LINE#              26
+	C:0026H            LINE#              27
+	C:0028H            LINE#              28
+	C:0029H            LINE#              29
+	C:002CH            LINE#              30
+	C:002EH            LINE#              32
+	C:0030H            LINE#              33
+	C:0032H            LINE#              34
+	C:0034H            LINE#              35
+	C:0036H            LINE#              36
+	-------            ENDMOD             LED7THANH
+
+LINK/LOCATE RUN COMPLETE, 1 WARNING  FOUND.
+
